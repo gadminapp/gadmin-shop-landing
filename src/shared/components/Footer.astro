@@ -1,8 +1,8 @@
 ---
 import logoBg from '@/assets/img/logo-dark.webp'
-import LinkedIn from '@/shared/components/icons/LinkedIn.astro'
+// import LinkedIn from '@/shared/components/icons/LinkedIn.astro'
 import { Image } from 'astro:assets'
-import Instagram from './icons/Instagram.astro'
+// import Instagram from './icons/Instagram.astro'
 
 interface Props {}
 
@@ -12,9 +12,7 @@ const {} = Astro.props
 <footer>
   <div class='wrapper'>
     <div class='footer-cta-section' data-aos='fade-up'>
-      <h3 class='footer-cta-title'>
-        ¿Listo para dejar atrás los PDFs y el caos en WhatsApp?
-      </h3>
+      <h3 class='footer-cta-title'>¿Listo para dejar atrás los PDFs y el caos en WhatsApp?</h3>
       <a href='/#pricing' class='footer-cta-btn cta--track' id='footer-cta-btn'>
         ¡Quiero ser Fundador de Gadmin Shop! 🚀
       </a>
@@ -39,7 +37,7 @@ const {} = Astro.props
         </div>
         <div class='footer-payment-logo'>
           <svg viewBox='0 0 48 16' width='40' height='14'>
-            <rect width='48' height='16' rx='3' fill='#1a1f71' />
+            <rect width='48' height='16' rx='3' fill='#1a1f71'></rect>
             <text
               x='5'
               y='12'
@@ -54,9 +52,9 @@ const {} = Astro.props
         </div>
         <div class='footer-payment-logo'>
           <svg viewBox='0 0 48 16' width='40' height='14'>
-            <rect width='48' height='16' rx='3' fill='#252525' />
-            <circle cx='18' cy='8' r='6' fill='#eb001b' opacity='0.9' />
-            <circle cx='30' cy='8' r='6' fill='#f79e1b' opacity='0.9' />
+            <rect width='48' height='16' rx='3' fill='#252525'></rect>
+            <circle cx='18' cy='8' r='6' fill='#eb001b' opacity='0.9'></circle>
+            <circle cx='30' cy='8' r='6' fill='#f79e1b' opacity='0.9'></circle>
           </svg>
         </div>
       </div>
@@ -85,7 +83,6 @@ const {} = Astro.props
     padding: 3rem 1rem 2rem;
     background: linear-gradient(180deg, var(--shade-03) 0%, #1c1f22 100%);
   }
-
 
   /* === Webs Footer === */
   .footer-cta-section {
@@ -240,7 +237,6 @@ const {} = Astro.props
   }
 
   @media screen and (max-width: 768px) {
-
     .footer-cta-title {
       font-size: 1.25rem;
     }

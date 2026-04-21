@@ -1,5 +1,5 @@
 {
-  "name": "gadmin-landing",
+  "name": "gadmin-shop-landing",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -35,7 +35,7 @@
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
     "prettier-plugin-astro-organize-imports": "^0.4.5",
-    "wrangler": "^4.84.1"
+    "wrangler": "^3.51.2"
   },
   "husky": {
     "hooks": {
