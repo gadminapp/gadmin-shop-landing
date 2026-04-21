@@ -12,9 +12,9 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
-  output: 'hybrid',
+  output: 'server',
   adapter: cloudflare({
-    imageService: 'cloudflare',
+    imageService: 'passthrough',
   }),
   site: 'https://gadmin.shop',
   integrations: [
