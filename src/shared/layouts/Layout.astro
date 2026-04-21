@@ -1,0 +1,216 @@
+---
+import SEO from '@/shared/components/SEO.astro'
+import type { Preload } from '@/shared/types/Preload'
+import 'aos/dist/aos.css'
+// import WhatsApp from '../components/whatsAppWidget/WhatsApp.astro'
+interface Props {
+  title: string
+  description: string
+  preload?: Array<Preload>
+  canonical?: string
+  image?: string
+  withSEO?: boolean
+  withMetaPixel?: boolean
+}
+
+const { title, description, preload, canonical, image, withSEO = false, withMetaPixel = false } = Astro.props
+---
+
+<!doctype html>
+<html lang='es'>
+  <head>
+    {
+      withSEO && (
+        <SEO
+          title={title}
+          description={description}
+          preload={preload}
+          canonical={canonical}
+          image={image}
+        >
+          <slot name='schema' />
+        </SEO>
+      )
+    }
+    <!-- Meta Pixel Code -->
+    {
+      withMetaPixel && (
+      <script is:inline>
+        !(function (f, b, e, v, n, t, s) {
+          if (f.fbq) return
+          n = f.fbq = function () {
+            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+          }
+          if (!f._fbq) f._fbq = n
+          n.push = n
+          n.loaded = !0
+          n.version = '2.0'
+          n.queue = []
+          t = b.createElement(e)
+          t.async = !0
+          t.src = v
+          s = b.getElementsByTagName(e)[0]
+          s.parentNode.insertBefore(t, s)
+        })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js')
+        fbq('init', '950064277381087')
+        fbq('track', 'PageView')
+      </script>
+      <noscript
+        ><img
+          height='1'
+          width='1'
+          style='display:none'
+          src='https://www.facebook.com/tr?id=950064277381087&ev=PageView&noscript=1'
+        /></noscript
+      >
+      )
+    }
+    <!-- End Meta Pixel Code -->
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap'
+      rel='stylesheet preload prefetch'
+      as='style'
+    />
+    <script is:inline async src='https://cdn.seline.so/seline.js' data-token='141979288a35370'
+    ></script>
+    <meta charset='utf-8' />
+  </head>
+  <body>
+    <slot />
+
+    {/* <WhatsApp /> */}
+    <script>
+      import { aosInit } from '@/js/aos'
+
+      const handleScroll = () => {
+        var scrolled = window.scrollY > 0
+        document.body.classList.toggle('scrolled', scrolled)
+      }
+      document.addEventListener('DOMContentLoaded', handleScroll)
+      window.addEventListener('scroll', handleScroll)
+
+      aosInit()
+    </script>
+    <style is:global>
+      :root {
+        --white: #ffffff;
+        --primary: #FFB200;
+        --primary-lighter: #FFC133;
+        --dark: #2D3339;
+        --secondary: #8599A9;
+        --accent: #FFB200;
+        --gray-gadmin: #8599A9;
+        --shade-03: #2D3339;
+        --shade-04: #3D444D;
+        --neutral-02: #ebebeb;
+        --neutral-03: #dddddd;
+        --neutral-04: #d3d3d3;
+        --neutral-06: #b0b0b0;
+        --neutral-07: #717171;
+        --neutral-08: #5e5e5e;
+
+        --64-pt: 3rem;
+        --48-pt: 2.25rem;
+        --40-pt: 2rem;
+        --38-pt: 1.75rem;
+        --32-pt: 1.25rem;
+        --20-pt: 0.95rem;
+        --16-pt: 0.75rem;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        font-family: 'Lexend', sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        background: var(--shade-03);
+        background-size: 224px;
+        scrollbar-gutter: stable;
+        scroll-behavior: smooth;
+        color: var(--white);
+      }
+
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-weight: 700;
+      }
+
+      a {
+        color: white;
+      }
+
+      a:visited {
+        color: var(--secondary);
+      }
+
+      .wrapper {
+        max-width: 72rem;
+        margin: 0 auto;
+      }
+
+      .text-primary {
+        color: var(--primary);
+      }
+
+      .text-secondary {
+        color: var(--secondary);
+      }
+
+      .text-accent {
+        color: var(--accent);
+      }
+
+      .text-gradient {
+        background: linear-gradient(150deg, var(--accent), var(--primary));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: 0px 8px 16px rgba(255, 178, 0, 0.15);
+      }
+
+      .text-neutral-08 {
+        color: var(--neutral-08);
+      }
+
+      .uppercase {
+        text-transform: uppercase;
+      }
+
+      @media screen and (max-width: 768px) {
+        :root {
+          --64-pt: 2.5rem;
+          --48-pt: 2rem;
+          --40-pt: 1.5rem;
+          --32-pt: 1.15rem;
+        }
+
+        .hide-on-mobile {
+          display: none !important;
+        }
+      }
+
+      @media screen and (max-width: 375px) {
+        :root {
+          --64-pt: 2rem;
+          --40-pt: 1.35rem;
+        }
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /success, /cdn-cgi/l/email-protection
+
+# Host
+Host: https://gadmin.shop
+
+# Sitemaps
+Sitemap: https://gadmin.shop/sitemap-index.xml
+

@@ -1,0 +1,55 @@
+---
+import Button from '../Button.astro'
+---
+
+<div class='cta-header'>
+  <h2 class='pricing__title' data-aos='zoom-in'>El mundo digital te está esperando</h2>
+  <p class='pricing__subtitle' data-aos='zoom-in'>
+    Es hora de dejar de ser un secreto a voces y dar el salto. No te quedes atrás viendo cómo otros
+    emprendedores, como tú, ya están conquistando nuevos clientes y transformando sus sueños en
+    ventas.
+    <br />
+    <br />
+    <strong>¡Tu momento es ahora!</strong>
+    <br />
+    Únete a esta comunidad que ya está construyendo su libertad financiera.
+  </p>
+  <Button
+    classes='cta--track'
+    href='https://accounts.gadmin.app/signup?from=cta'
+    mode='gradient'
+    style={{
+      width: 'fit-content',
+      fontWeight: 500,
+    }}>Empezar gratis</Button
+  >
+</div>
+
+<style>
+  .cta-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    max-width: 750px;
+    margin: 0 auto;
+  }
+
+  .pricing__title {
+    text-align: center;
+    color: var(--white);
+    font-size: var(--48-pt);
+    margin: 0;
+    padding: 0 1rem;
+  }
+
+  .pricing__subtitle {
+    text-align: center;
+    font-size: var(--32-pt);
+    font-weight: 500;
+    margin: 1rem 0;
+    color: var(--neutral-06);
+    line-height: 1.45;
+  }
+</style>

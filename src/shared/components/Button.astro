@@ -1,0 +1,128 @@
+---
+interface Props {
+  classes?: string
+  mode: 'default' | 'outlined' | 'gradient' | 'ghost'
+  type?: 'gradient' | 'gray'
+  href: string
+  target?: '_blank' | '_parent' | '_self' | '_top'
+  style?: string | Record<string, string | number>
+  [key: string]: any
+}
+
+const {
+  classes = '',
+  type = 'gradient',
+  mode,
+  href,
+  target = '_self',
+  style,
+  ...rest
+} = Astro.props
+---
+
+<a
+  href={href}
+  target={target}
+  rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+  class:list=`button button--mode-${mode} button--type-${type} ${classes}`
+  style={style}
+  {...rest}
+>
+  <slot />
+</a>
+
+<style>
+  .button {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition:
+      0.3s ease-in-out box-shadow,
+      0.2s ease background-color,
+      0.2s ease border,
+      0.2s ease color;
+  }
+
+  .button--type-gradient.button--mode-default {
+    color: var(--dark);
+    background-color: var(--primary);
+  }
+
+  .button--type-gradient.button--mode-default:hover {
+    background-color: var(--primary-lighter);
+  }
+
+  .button--type-gradient.button--mode-default:active {
+    background-color: var(--primary);
+  }
+
+  .button--type-gradient.button--mode-outlined {
+    border: 2px solid var(--primary);
+  }
+
+  .button--type-gradient.button--mode-outlined:hover {
+    border-color: var(--accent);
+  }
+
+  .button--type-gradient.button--mode-outlined:active {
+    border-color: var(--neutral-06);
+  }
+
+  .button--type-gradient.button--mode-ghost {
+    background: transparent;
+    border: none;
+    color: var(--primary);
+  }
+
+  .button--type-gradient.button--mode-ghost:hover {
+    color: var(--accent);
+  }
+
+  .button--type-gradient.button--mode-ghost:active {
+    color: var(--neutral-06);
+  }
+
+  .button--type-gray.button--mode-default {
+    color: var(--neutral-02);
+    background-color: var(--shade-03);
+  }
+
+  .button--type-gray.button--mode-default:hover {
+    background-color: var(--shade-04);
+  }
+
+  .button--type-gray.button--mode-outlined {
+    border: 2px solid var(--shade-03);
+    color: var(--shade-03);
+  }
+
+  .button--type-gray.button--mode-outlined:hover {
+    border-color: var(--shade-04);
+    color: var(--shade-04);
+  }
+
+  .button--type-gray.button--mode-ghost {
+    background: transparent;
+    border: none;
+    color: var(--neutral-03);
+  }
+
+  .button--type-gray.button--mode-ghost:hover {
+    color: var(--white);
+  }
+
+  .button--mode-gradient {
+    background-image: linear-gradient(125deg, var(--primary), var(--accent));
+    color: var(--dark);
+    border: none;
+    box-shadow: 0px 8px 16px rgba(255, 178, 0, 0.15);
+  }
+
+  .button--mode-gradient:hover {
+    box-shadow: 0px 4px 8px rgba(255, 178, 0, 0.1);
+  }
+</style>
