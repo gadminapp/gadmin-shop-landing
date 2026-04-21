@@ -64,6 +64,11 @@ const { pathname } = Astro.url
   }
 
   .link--current {
-    background-color: #151b5b;
+    background-color: var(--primary);
+    color: var(--dark) !important;
+  }
+
+  .link:not(.link--current):hover {
+    background-color: rgba(255, 178, 0, 0.1);
   }
 </style>
